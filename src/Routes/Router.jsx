@@ -10,6 +10,9 @@ import ManageMyFoods from '../Pages/ManageMyFoods'
 import MyFoodsRequest from "../Pages/MyFoodsRequest";
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
+import ForgetPass from "../Pages/ForgetPass";
+import Loading from "../Pages/Loading";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -22,6 +25,7 @@ const router = createBrowserRouter([
                                 index: true,
                                 path: '/',
                                 element: <Home></Home>,
+                                hydrateFallbackElement: <Loading></Loading>
                 },
                 { 
                                 path: '/available-foods',
@@ -29,15 +33,21 @@ const router = createBrowserRouter([
                 },
                 { 
                                 path: '/add-foods',
-                                element: <AddFood></AddFood>,
+                                element: <PrivateRoute>
+                                  <AddFood></AddFood>
+                                </PrivateRoute>,
                 },
                 { 
                                 path: '/manage-my-foods',
-                                element: <ManageMyFoods></ManageMyFoods>,
+                                element: <PrivateRoute>
+                                  <ManageMyFoods></ManageMyFoods>
+                                </PrivateRoute>,
                 },
                 { 
                                 path: '/my-food-request',
-                                element: <MyFoodsRequest></MyFoodsRequest>,
+                                element: <PrivateRoute>
+                                  <MyFoodsRequest></MyFoodsRequest>
+                                </PrivateRoute>,
                 },
                 { 
                                 path: '/login',
@@ -46,6 +56,10 @@ const router = createBrowserRouter([
                 { 
                                 path: '/register',
                                 element: <Register></Register>,
+                },
+                { 
+                                path: '/forget-password',
+                                element: <ForgetPass></ForgetPass>,
                 },
     ]
   },

@@ -2,10 +2,12 @@ import React from "react";
 import { Outlet } from "react-router";
 import Navbar from "../SharedComponents/Navbar";
 import Footer from "../SharedComponents/Footer";
+import { ToastContainer } from "react-toastify";
 
 const MainLayout = () => {
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <header>
         <nav>
           <Navbar></Navbar>
