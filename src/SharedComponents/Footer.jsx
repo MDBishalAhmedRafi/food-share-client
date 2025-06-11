@@ -6,7 +6,7 @@ import animationData from '../assets/Food-share.json'
 
 const Footer = () => {
                 return (
-                                <div className="bg-green-100 text-green-900 pt-12 pb-6 px-4 md:px-16 relative overflow-hidden">
+                                <div className="bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl text-[#333333] pt-12 pb-6 px-4 md:px-16 relative overflow-hidden">
                                            {/* Lottie background decoration */}
       <div className="absolute top-15 -right-5 w-[180px] opacity-60 pointer-events-none">
         <Lottie animationData={animationData} loop autoplay />
@@ -21,7 +21,7 @@ const Footer = () => {
       >
         {/* Column 1: Logo + Mission */}
         <div>
-          <h3 className="text-2xl font-bold text-green-800 mb-2">FoodShare</h3>
+          <h3 className="text-2xl font-extrabold text-[#333333] mb-2">FoodShare</h3>
           <p className="text-sm leading-relaxed">
             Our mission is to reduce food waste and support local communities
             by making food donation simple and accessible to everyone.
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
 
         {/* Column 2: Quick Links */}
-        <div>
+        <div className='font-bold'>
           <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><a href="/" className="hover:underline">Home</a></li>
@@ -48,11 +48,11 @@ const Footer = () => {
               type="email"
               placeholder="Your email"
               required
-              className="px-3 py-2 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="px-3 py-2 rounded-lg border border-[#333333] focus:outline-none focus:ring-2 focus:[#333333]"
             />
             <button
               type="submit"
-              className="bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+              className="bg-[#2A9D8F] text-white py-2 rounded-lg cursor-pointer transition"
             >
               Subscribe
             </button>
@@ -64,9 +64,9 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-3">Contact</h4>
           <p className="text-sm mb-2">hello@foodshare.org</p>
           <div className="flex space-x-4 mt-3">
-            <a href="#"><Facebook className="w-5 h-5 text-green-700 hover:text-green-900" /></a>
-            <a href="#"><Twitter className="w-5 h-5 text-green-700 hover:text-green-900" /></a>
-            <a href="#"><Instagram className="w-5 h-5 text-green-700 hover:text-green-900" /></a>
+            <a href="#"><Facebook className="w-5 h-5 text-[#333333] hover:text-green-900" /></a>
+            <a href="#"><Twitter className="w-5 h-5 text-[#333333] hover:text-green-900" /></a>
+            <a href="#"><Instagram className="w-5 h-5 text-[#333333] hover:text-green-900" /></a>
           </div>
         </div>
       </motion.div>
@@ -77,7 +77,7 @@ const Footer = () => {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
         viewport={{ once: true }}
-        className="mt-10 border-t border-green-300 pt-4 text-center text-xs text-green-600 relative z-10"
+        className="mt-10 border-t border-[#333333] pt-4 text-center text-xs text-[#333333] relative z-10"
       >
         © {new Date().getFullYear()} FoodShare. All rights reserved.
       </motion.div>   

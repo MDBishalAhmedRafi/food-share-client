@@ -72,13 +72,13 @@ const LogIn = () => {
 
   return (
     <div className="lg:w-11/12 lg:mx-auto mx-s">
-      <div className="min-h-screen bg-gradient-to-r from-yellow-200 via-orange to-red-200 lg:mb-10 md:mb-7 mb-5 flex items-center justify-center rounded-2xl">
+      <div className="min-h-screen bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] lg:mb-10 md:mb-7 mb-5 flex items-center justify-center rounded-2xl">
         <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
           <h2 className="text-2xl font-semibold text-center text-gray-800">
             Login Your Account
           </h2>
           <div className="border-b border-gray-300 mt-2 mb-6 relative">
-            <div className="absolute left-1/2 -bottom-[1px] transform -translate-x-1/2 w-16 h-[2px] bg-blue-500" />
+            <div className="absolute left-1/2 -bottom-[1px] transform -translate-x-1/2 w-16 h-[2px] bg-[#2A9D8F]" />
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -89,7 +89,7 @@ const LogIn = () => {
               ref={emailRef}
               placeholder="Email"
               required
-              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A9D8F]"
             />
 
             {/* Password Input with Toggle */}
@@ -99,7 +99,7 @@ const LogIn = () => {
                 name="password"
                 placeholder="Password"
                 required
-                className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pr-12"
+                className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A9D8F] pr-12"
               />
               <button
                 type="button"
@@ -118,7 +118,7 @@ const LogIn = () => {
                 <span className="text-gray-600">Remember me</span>
               </label>
               <div
-                className="text-blue-600 hover:underline cursor-pointer"
+                className="text-[#2A9D8F] font-bold hover:underline cursor-pointer"
                 onClick={handleForgotPassword}
               >
                 Forget Password?
@@ -143,7 +143,7 @@ const LogIn = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-bold"
+              className="cursor-pointer w-full bg-[#2A9D8F90] hover:bg-[#2A9D8F] text-white py-3 rounded-md transition font-bold"
             >
               Log In
             </button>
@@ -153,7 +153,7 @@ const LogIn = () => {
             Don’t you have an account?{" "}
             <Link
               to="/register"
-              className="text-blue-600 font-bold hover:underline"
+              className="text-[#2A9D8F] font-bold hover:underline"
             >
               Register
             </Link>

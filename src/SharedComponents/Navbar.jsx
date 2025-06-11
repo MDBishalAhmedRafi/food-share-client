@@ -25,7 +25,7 @@ const Navbar = () => {
       .catch(() => {});
   };
                 return (
-                                <div className="lg:w-11/12 lg:mx-auto mx-2  bg-gradient-to-r from-yellow-200 via-orange to-red-100">
+                                <div className="lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-r from-[#2A9D8F] via-orange to-[#F1FAEE]">
       <div className="navbar shadow-sm mb-5">
         <div className="navbar-start">
           <div className="dropdown ">
@@ -120,18 +120,18 @@ const Navbar = () => {
               alt=""
             />
           {user ? (
-            <button onClick={handleLogOut} className="btn">
+            <button onClick={handleLogOut} className="btn bg-[#2A9D8F]">
               Logout
             </button>
           ) : (
-            <Link to="/login" className="btn">
+            <Link to="/login" className="btn bg-[#2A9D8F]">
               Login
             </Link>
           )}
           {user ? (
             ""
           ) : (
-            <Link to="/register" className="btn">
+            <Link to="/register" className="btn bg-[#2A9D8F]">
               Register
             </Link>
           )}

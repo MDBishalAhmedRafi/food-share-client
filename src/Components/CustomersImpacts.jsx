@@ -6,17 +6,17 @@ import CountUp from "react-countup";
 // Statistic items
 const items = [
   {
-    icon: <HandHeart className="w-10 h-10 text-green-600 mx-auto mb-3" />,
+    icon: <HandHeart className="w-10 h-10 text-[#333333] mx-auto mb-3" />,
     label: "Meals Donated",
     value: 4500,
   },
   {
-    icon: <Users className="w-10 h-10 text-green-600 mx-auto mb-3" />,
+    icon: <Users className="w-10 h-10 text-[#333333] mx-auto mb-3" />,
     label: "Volunteers",
     value: 2000,
   },
   {
-    icon: <Star className="w-10 h-10 text-green-600 mx-auto mb-3" />,
+    icon: <Star className="w-10 h-10 text-[#333333] mx-auto mb-3" />,
     label: "Families Helped",
     value: 1200,
   },
@@ -76,10 +76,10 @@ const CustomersImpacts = () => {
   }, []);
 
   return (
-    <div className="bg-green-50 py-16 px-4 md:px-20">
+    <div className="py-16 px-4 md:px-20 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl">
       {/* Title */}
       <motion.h2
-        className="text-4xl font-bold text-center text-green-800 mb-4"
+        className="text-4xl font-extrabold text-center text-[#333333] mb-4"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -90,7 +90,7 @@ const CustomersImpacts = () => {
 
       {/* Subtitle */}
       <motion.p
-        className="text-center text-green-700 mb-12"
+        className="text-center text-[#333333] mb-12"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -121,7 +121,7 @@ const CustomersImpacts = () => {
       </div>
 
       {/* Testimonial Slider */}
-      <div className="max-w-3xl mx-auto text-center text-green-700 text-lg relative h-[100px]">
+      <div className="max-w-3xl mx-auto text-center text-[#333333] text-lg relative h-[100px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -132,7 +132,7 @@ const CustomersImpacts = () => {
             className="absolute w-full"
           >
             <p className="italic mb-2 px-4">“{testimonials[current].quote}”</p>
-            <strong className="block text-green-800">{testimonials[current].name}</strong>
+            <strong className="block text-[#333333]">{testimonials[current].name}</strong>
           </motion.div>
         </AnimatePresence>
       </div>

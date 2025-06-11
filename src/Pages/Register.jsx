@@ -98,13 +98,13 @@ const Register = () => {
 
   return (
     <div className="lg:w-11/12 lg:mx-auto mx-2">
-      <div className="min-h-screen bg-gradient-to-r from-red-200 via-orange to-orange-200 lg:mb-10 md:mb-7 mb-5  flex items-center justify-center rounded-2xl">
+      <div className="min-h-screen bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] lg:mb-10 md:mb-7 mb-5  flex items-center justify-center rounded-2xl">
         <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
           <h2 className="text-2xl font-semibold text-center text-gray-800">
             Register Your Account
           </h2>
           <div className="border-b border-gray-300 mt-2 mb-6 relative">
-            <div className="absolute left-1/2 -bottom-[1px] transform -translate-x-1/2 w-16 h-[2px] bg-blue-500" />
+            <div className="absolute left-1/2 -bottom-[1px] transform -translate-x-1/2 w-16 h-[2px] bg-[#2A9D8F]" />
           </div>
 
           <form onSubmit={handleRegister} className="space-y-4">
@@ -114,7 +114,7 @@ const Register = () => {
               name="name"
               placeholder="Enter Your Name"
               required
-              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A9D8F]"
             />
             {/* Email */}
             <input
@@ -122,7 +122,7 @@ const Register = () => {
               name="email"
               placeholder="Enter Your Email"
               required
-              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A9D8F]"
             />
             {/* Photo URL */}
             <input
@@ -130,7 +130,7 @@ const Register = () => {
               name="photo"
               placeholder="Photo Url"
               required
-              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A9D8F]"
             />
 
             {/* Password with Eye Toggle */}
@@ -140,7 +140,7 @@ const Register = () => {
                 name="password"
                 placeholder="Type Your Password"
                 required
-                className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pr-12"
+                className="text-gray-800 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2A9D8F] pr-12"
               />
               <button
                 type="button"
@@ -170,7 +170,7 @@ const Register = () => {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-bold"
+              className="w-full cursor-pointer bg-[#2A9D8F90] hover:bg-[#2A9D8F] text-white py-3 rounded-md transition font-bold"
             >
               Register
             </button>
@@ -178,7 +178,7 @@ const Register = () => {
 
           <p className="text-center text-sm text-gray-600 mt-6">
             Do you have an account?{" "}
-            <Link to="/login" className="text-blue-600 font-bold hover:underline">
+            <Link to="/login" className="text-[#2A9D8F] font-bold hover:underline">
               Login
             </Link>
           </p>

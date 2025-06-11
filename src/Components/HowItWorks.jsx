@@ -34,7 +34,7 @@ const HowItWorks = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative py-20 px-4 md:px-20 bg-gradient-to-b from-green-50 to-white overflow-hidden lg:mt-10 md:mt-7 mt-5"
+      className="relative py-20 px-4 md:px-20 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl overflow-hidden lg:mt-10 md:mt-7 mt-5"
     >
       {/* Decorative blurred background blobs */}
       <div className="absolute top-[-80px] left-[-60px] w-[200px] h-[200px] bg-green-200 opacity-20 rounded-full blur-3xl z-0" />
@@ -47,7 +47,7 @@ const HowItWorks = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold text-green-800 mb-4"
+          className="text-4xl md:text-5xl font-extrabold text-[#333333] mb-4"
         >
           How It Works
         </motion.h2>
@@ -56,7 +56,7 @@ const HowItWorks = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-lg text-green-700"
+          className="text-lg text-[#333333] font-bold"
         >
           Sharing food is now as easy as a few simple steps.
         </motion.p>
@@ -73,11 +73,11 @@ const HowItWorks = () => {
       transition={{ duration: 0.6 }}
     >
       {React.createElement(step.icon, {
-        className: "w-12 h-12 text-green-600 mx-auto mb-4",
+        className: "w-12 h-12 text-[#333333] font-bold mx-auto mb-4",
       })}
     </motion.div>
-    <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{step.title}</h3>
-    <p className="text-sm text-gray-600 text-center">{step.desc}</p>
+    <h3 className="text-xl font-bold text-[#333333] mb-2 text-center">{step.title}</h3>
+    <p className="text-sm text-[#333333] font-bold text-center">{step.desc}</p>
   </motion.div>
 ))}
       </div>
