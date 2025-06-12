@@ -24,11 +24,13 @@ const router = createBrowserRouter([
                 { 
                                 index: true,
                                 path: '/',
+                                loader: () => fetch('http://localhost:3000/foods'),
                                 element: <Home></Home>,
                                 hydrateFallbackElement: <Loading></Loading>
                 },
                 { 
                                 path: '/available-foods',
+                                loader: () => fetch('http://localhost:3000/available-foods'),
                                 element: <AvailableFoods></AvailableFoods>,
                 },
                 { 

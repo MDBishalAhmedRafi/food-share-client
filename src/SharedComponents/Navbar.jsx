@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import mainLogo from '../assets/logo.jpg'
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import ToggleTheme from './ToggleTheme';
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
@@ -56,9 +57,9 @@ const Navbar = () => {
             <li>
               <NavLink to="/available-foods">Available-Foods</NavLink>
             </li>
-            <li>
+            {user ? <li>
               <NavLink to="/add-foods">Add-Foods</NavLink>
-            </li>
+            </li> : ""}
             <li>
               <NavLink to="/manage-my-foods">Manage My Foods</NavLink>
             </li>

@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { use } from 'react';
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram } from "lucide-react";
-import Lottie from "lottie-react";
-import animationData from '../assets/Food-share.json'
+// import { Facebook, Twitter, Instagram } from "lucide-react";
+// import Lottie from "lottie-react";
+// import animationData from '../assets/Food-share.json'
+import { AuthContext } from '../Provider/AuthProvider';
+import { Link } from 'react-router';
+import { FaFacebook, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
+  const {user} = use(AuthContext)
                 return (
                                 <div className="bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl text-[#333333] pt-12 pb-6 px-4 md:px-16 relative overflow-hidden">
                                            {/* Lottie background decoration */}
-      <div className="absolute top-15 -right-5 w-[180px] opacity-60 pointer-events-none">
+      {/* <div className="absolute top-15 -right-5 w-[180px] opacity-60 pointer-events-none">
         <Lottie animationData={animationData} loop autoplay />
-      </div>
+      </div> */}
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -33,8 +37,10 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><a href="/" className="hover:underline">Home</a></li>
-            <li><a href="/donate" className="hover:underline">Donate Food</a></li>
-            <li><a href="/receive" className="hover:underline">Receive Food</a></li>
+            <li><a href="/available-foods" className="hover:underline">Available-Foods</a></li>
+            {user ? <li>
+                          <a href="/add-foods" className="hover:underline">Add-Foods</a>
+                        </li> : ""}
             <li><a href="/about" className="hover:underline">About Us</a></li>
           </ul>
         </div>
@@ -64,9 +70,21 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-3">Contact</h4>
           <p className="text-sm mb-2">hello@foodshare.org</p>
           <div className="flex space-x-4 mt-3">
-            <a href="#"><Facebook className="w-5 h-5 text-[#333333] hover:text-green-900" /></a>
-            <a href="#"><Twitter className="w-5 h-5 text-[#333333] hover:text-green-900" /></a>
-            <a href="#"><Instagram className="w-5 h-5 text-[#333333] hover:text-green-900" /></a>
+            <Link
+              to="https://www.facebook.com/profile.php?id=100078144576684"
+              target="_blank"
+            >
+              <FaFacebook className="text-blue-600" size={25} />
+            </Link>
+            <Link to="https://x.com/" target="_blank">
+              <FaTwitter size={25} />
+            </Link>
+            <Link to="https://www.linkedin.com/" target="_blank">
+              <FaLinkedin className="text-blue-600" size={25} />
+            </Link>
+            <Link to="https://www.youtube.com/@mdbarafi1425" target="_blank">
+              <FaYoutube className="text-red-600" size={25} />
+            </Link>
           </div>
         </div>
       </motion.div>

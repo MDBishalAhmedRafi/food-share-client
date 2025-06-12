@@ -46,7 +46,7 @@ const ForgetPass = () => {
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] lg:w-11/12 lg:mx-auto mx-s rounded-2xl px-4">
       <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-lg">
         <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-blue-500 via-green-400 to-red-500 bg-clip-text text-transparent">
           Forgot Password
@@ -60,13 +60,13 @@ const ForgetPass = () => {
             type="email"
             ref={emailRef}
             defaultValue={location.state.email}
-            className="text-gray-800 w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="text-gray-800 w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-[#2A9D8F]"
             placeholder="you@example.com"
           />
 
           <button
             type="submit"
-            className="w-full bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-700 transition duration-200"
+            className="w-full bg-[#2A9D8F90] text-white font-bold py-2 rounded-lg hover:bg-[#2A9D8F] cursor-pointer transition duration-200"
           >
             Reset Password
           </button>
