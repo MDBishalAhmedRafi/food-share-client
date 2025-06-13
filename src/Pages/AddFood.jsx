@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
+import { getAuth } from 'firebase/auth';
+import axios from 'axios';
+import { format } from 'date-fns';
 
 const AddFood = () => {
   const [formData, setFormData] = useState({
@@ -22,16 +25,61 @@ const AddFood = () => {
     setFormData({ ...formData, expiredDateTime: date });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-   Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Your Food has been added",
-  showConfirmButton: false,
-  timer: 1500
-});
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (!user) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'User not logged in!',
+      });
+      return;
+    }
+
+    // Format date as DD-MM-YYYY
+    const formattedDate = format(formData.expiredDateTime, 'dd-MM-yyyy');
+
+    const foodData = {
+      ...formData,
+      expiredDateTime: formattedDate,
+      foodStatus: 'available',
+      userName: user.displayName,
+      userEmail: user.email,
+      userImage: user.photoURL
+    };
+
+    try {
+      const response = await axios.post('http://localhost:3000/available-foods', foodData);
+      if (response.status === 201 || response.status === 200) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your Food has been added",
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        setFormData({
+          foodName: '',
+          foodImageUrl: '',
+          foodQuantity: '',
+          pickupLocation: '',
+          expiredDateTime: null,
+          additionalNotes: ''
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed!',
+        text: 'Something went wrong.',
+      });
+    }
   };
 
   return (
@@ -48,11 +96,9 @@ const AddFood = () => {
               name="foodName"
               value={formData.foodName}
               onChange={handleChange}
-              className={`w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 ${
-                formData.foodName ? 'text-blue-900 font-semibold' : ''
-              }`}
               placeholder="Enter food name"
               required
+              className="w-full p-3 border border-gray-300 rounded-xl"
             />
           </div>
 
@@ -65,10 +111,8 @@ const AddFood = () => {
               value={formData.foodImageUrl}
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
-              className={`w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 ${
-                formData.foodImageUrl ? 'text-blue-900 font-semibold' : ''
-              }`}
               required
+              className="w-full p-3 border border-gray-300 rounded-xl"
             />
           </div>
 
@@ -76,15 +120,13 @@ const AddFood = () => {
           <div>
             <label className="block text-lg font-semibold text-gray-700 mb-2">Food Quantity</label>
             <input
-              type="number"
+              type="text"
               name="foodQuantity"
               value={formData.foodQuantity}
               onChange={handleChange}
               placeholder="e.g. 5 plates, 3 kg"
-              className={`w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 ${
-                formData.foodQuantity ? 'text-blue-900 font-semibold' : ''
-              }`}
               required
+              className="w-full p-3 border border-gray-300 rounded-xl"
             />
           </div>
 
@@ -97,14 +139,12 @@ const AddFood = () => {
               value={formData.pickupLocation}
               onChange={handleChange}
               placeholder="e.g. Downtown, City Center"
-              className={`w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 ${
-                formData.pickupLocation ? 'text-blue-900 font-semibold' : ''
-              }`}
               required
+              className="w-full p-3 border border-gray-300 rounded-xl"
             />
           </div>
 
-          {/* Expired Date (Date only) */}
+          {/* Expired Date */}
           <div>
             <label className="block text-lg font-semibold text-gray-700 mb-2">Expired Date</label>
             <DatePicker
@@ -112,11 +152,9 @@ const AddFood = () => {
               onChange={handleDateChange}
               dateFormat="dd-MM-yyyy"
               minDate={new Date()}
-              className={`w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 ${
-                formData.expiredDateTime ? 'text-blue-900 font-semibold' : ''
-              }`}
               placeholderText="Select expiration date"
               required
+              className="w-full p-3 border border-gray-300 rounded-xl"
             />
           </div>
 
@@ -128,9 +166,7 @@ const AddFood = () => {
               value={formData.additionalNotes}
               onChange={handleChange}
               placeholder="Any special instructions..."
-              className={`w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 ${
-                formData.additionalNotes ? 'text-blue-900 font-semibold' : ''
-              }`}
+              className="w-full p-3 border border-gray-300 rounded-xl"
               rows="3"
             />
           </div>
@@ -141,7 +177,7 @@ const AddFood = () => {
               type="submit"
               className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold px-8 py-3 rounded-full shadow-lg hover:scale-105 transform transition"
             >
-               Add Food
+              Add Food
             </button>
           </div>
 

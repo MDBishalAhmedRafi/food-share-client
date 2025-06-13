@@ -13,6 +13,7 @@ import Register from '../Pages/Register'
 import ForgetPass from "../Pages/ForgetPass";
 import Loading from "../Pages/Loading";
 import PrivateRoute from "../Provider/PrivateRoute";
+import FoodDetails from "../Pages/FoodDetails";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
                                 path: '/available-foods',
                                 loader: () => fetch('http://localhost:3000/available-foods'),
                                 element: <AvailableFoods></AvailableFoods>,
+                },
+                { 
+                                path: '/foods/:id',
+                                element: <FoodDetails></FoodDetails>,
+                                loader: ({params}) => fetch (`http://localhost:3000/foods/${params.id}`)
                 },
                 { 
                                 path: '/add-foods',
