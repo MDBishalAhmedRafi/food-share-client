@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaEye } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const AvailableFoodsCard = ({singleFood}) => {
-                const { foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime } = singleFood
+                const {_id, foodName, foodImage, foodQuantity, pickupLocation, expiredDateTime } = singleFood
                 return (
                                  <div className="card bg-base-100 shadow-lg hover:shadow-2xl transition duration-300 border border-base-300">
                                         <figure className="overflow-hidden">
@@ -37,9 +38,11 @@ const AvailableFoodsCard = ({singleFood}) => {
                                           </div>
                                 
                                           <div className="card-actions justify-end mt-4">
+                                            <Link to={`/foods/${_id}`}>
                                             <button className="btn btn-sm btn-outline btn-primary flex items-center gap-2">
                                               <FaEye className="text-sm" /> View Details
                                             </button>
+                                            </Link>
                                           </div>
                                         </div>
                                       </div>
