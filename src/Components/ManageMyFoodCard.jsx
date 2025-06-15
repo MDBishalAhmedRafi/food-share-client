@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
 
-const ManageMyFoodCard = ({ food, index, handleDelete }) => {
+const ManageMyFoodCard = ({ food, index, handleDelete, handleUpdate }) => {
   return (
     <motion.tr
       className="hover:bg-gray-50 transition"
@@ -27,22 +27,27 @@ const ManageMyFoodCard = ({ food, index, handleDelete }) => {
           </div>
         </div>
       </td>
-
       <td className="py-4 px-4">
         <div className="font-bold text-gray-800">{food.userName}</div>
         <div className="text-sm text-gray-500">{food.userEmail}</div>
       </td>
-
       <td className="py-4 px-4">
-        <span className="text-indigo-600 font-medium">{food.pickupLocation}</span>
+        <span className="text-indigo-600 font-medium">
+          {food.pickupLocation}
+        </span>
       </td>
 
       <td className="py-4 px-4">
-        <span className="text-emerald-500 font-semibold">{food.expiredDateTime}</span>
+        <span className="text-emerald-500 font-semibold">
+          {food.expiredDateTime}
+        </span>
       </td>
 
       <td className="py-4 px-4 flex flex-col md:flex-row gap-3">
-        <button className="px-4 py-2 bg-indigo-500 text-white rounded-xl shadow hover:bg-indigo-600 transition text-sm font-medium">
+        <button
+          onClick={() => handleUpdate(food)}
+          className="px-4 py-2 bg-indigo-500 text-white rounded-xl shadow hover:bg-indigo-600 transition text-sm font-medium"
+        >
           Update
         </button>
         <button

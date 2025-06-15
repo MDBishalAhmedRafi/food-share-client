@@ -1,14 +1,15 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import ManageMyFoodCard from "../Components/ManageMyFoodCard";
 import { motion } from "framer-motion";
-import Swal from 'sweetalert2'; // For sweet alert notification
+import Swal from 'sweetalert2';
 
 const ManageMyFoods = () => {
   const addedFoods = useLoaderData();
   const [foods, setFoods] = useState(addedFoods);
-  const { user } = use(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [selectedFood, setSelectedFood] = useState(null);  // <-- for update modal
 
   useEffect(() => {
     fetch(`http://localhost:3000/my-foods/${user?.email}`)
@@ -36,18 +37,37 @@ const ManageMyFoods = () => {
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {
-              // Update UI without reloading
               setFoods(prevFoods => prevFoods.filter(food => food._id !== id));
-
-              Swal.fire(
-                'Deleted!',
-                'The food item has been deleted.',
-                'success'
-              );
+              Swal.fire('Deleted!', 'The food item has been deleted.', 'success');
             }
           });
       }
     });
+  };
+
+  // Open update modal
+  const handleUpdate = (food) => {
+    setSelectedFood({ ...food });
+  };
+
+  // Save updated food
+  const handleSaveUpdate = () => {
+    fetch(`http://localhost:3000/my-foods/${selectedFood._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(selectedFood),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.modifiedCount > 0) {
+          const updatedFoods = foods.map(food =>
+            food._id === selectedFood._id ? selectedFood : food
+          );
+          setFoods(updatedFoods);
+          setSelectedFood(null);
+          Swal.fire('Updated!', 'The food item has been updated.', 'success');
+        }
+      });
   };
 
   return (
@@ -81,12 +101,47 @@ const ManageMyFoods = () => {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {foods.map((food, index) => (
-                <ManageMyFoodCard key={food._id} food={food} index={index + 1} handleDelete={handleDelete} />
+                <ManageMyFoodCard key={food._id} food={food} index={index + 1} handleDelete={handleDelete} handleUpdate={handleUpdate} />
               ))}
             </tbody>
           </table>
         </motion.div>
       </div>
+
+      {/* Update Modal */}
+      {selectedFood && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50 flex justify-center items-center">
+          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg p-6 mx-3 overflow-y-auto max-h-[90vh]">
+            <button className="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-2xl font-bold" onClick={() => setSelectedFood(null)}>&times;</button>
+            <h2 className="text-2xl font-semibold text-center text-indigo-600 mb-6">Update Food</h2>
+
+            <form onSubmit={(e) => { e.preventDefault(); handleSaveUpdate(); }} className="space-y-4">
+              <div><label className="font-medium">Food Name</label>
+                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.foodName} onChange={(e) => setSelectedFood({ ...selectedFood, foodName: e.target.value })} />
+              </div>
+              <div><label className="font-medium">Food Image URL</label>
+                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.foodImage} onChange={(e) => setSelectedFood({ ...selectedFood, foodImage: e.target.value })} />
+              </div>
+              <div><label className="font-medium">Food Quantity</label>
+                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.foodQuantity} onChange={(e) => setSelectedFood({ ...selectedFood, foodQuantity: e.target.value })} />
+              </div>
+              <div><label className="font-medium">Pickup Location</label>
+                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.pickupLocation} onChange={(e) => setSelectedFood({ ...selectedFood, pickupLocation: e.target.value })} />
+              </div>
+              <div><label className="font-medium">Expired Date</label>
+                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.expiredDateTime} onChange={(e) => setSelectedFood({ ...selectedFood, expiredDateTime: e.target.value })} />
+              </div>
+              <div><label className="font-medium">Additional Notes</label>
+                <textarea className="textarea textarea-bordered w-full" value={selectedFood.additionalNotes} onChange={(e) => setSelectedFood({ ...selectedFood, additionalNotes: e.target.value })}></textarea>
+              </div>
+              <div className="flex justify-end gap-3">
+                <button type="button" className="btn btn-secondary" onClick={() => setSelectedFood(null)}>Cancel</button>
+                <button type="submit" className="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };
