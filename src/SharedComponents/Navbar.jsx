@@ -61,7 +61,7 @@ const Navbar = () => {
               <NavLink to="/add-foods">Add-Foods</NavLink>
             </li> : ""}
             <li>
-              <NavLink to="/manage-my-foods">Manage My Foods</NavLink>
+              <NavLink to={`/manage-my-foods/${user?.email}`}>Manage My Foods</NavLink>
             </li>
             <li>
               <NavLink to="/my-food-request">My Food Request</NavLink>
@@ -90,7 +90,7 @@ const Navbar = () => {
               <NavLink to="/add-foods">Add-Foods</NavLink>
             </li> : ""}
             <li>
-              <NavLink to="/manage-my-foods">Manage My Foods</NavLink>
+              <NavLink to={`/manage-my-foods/${user?.email}`}>Manage My Foods</NavLink>
             </li>
             <li>
               <NavLink to="/my-food-request">My Food Request</NavLink>
