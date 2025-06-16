@@ -72,7 +72,7 @@ const ManageMyFoods = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-emerald-50 py-10 px-4"
+      className="min-h-screen lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -116,23 +116,23 @@ const ManageMyFoods = () => {
             <h2 className="text-2xl font-semibold text-center text-indigo-600 mb-6">Update Food</h2>
 
             <form onSubmit={(e) => { e.preventDefault(); handleSaveUpdate(); }} className="space-y-4">
-              <div><label className="font-medium">Food Name</label>
-                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.foodName} onChange={(e) => setSelectedFood({ ...selectedFood, foodName: e.target.value })} />
+              <div><label className="font-bold text-gray-800">Food Name</label>
+                <input className="input input-bordered w-full bg-gray-400 text-gray-700 font-medium" value={selectedFood.foodName} onChange={(e) => setSelectedFood({ ...selectedFood, foodName: e.target.value })} />
               </div>
-              <div><label className="font-medium">Food Image URL</label>
-                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.foodImage} onChange={(e) => setSelectedFood({ ...selectedFood, foodImage: e.target.value })} />
+              <div><label className="font-bold text-gray-800">Food Image URL</label>
+                <input className="input input-bordered w-full bg-gray-400 text-gray-700 font-medium" value={selectedFood.foodImage} onChange={(e) => setSelectedFood({ ...selectedFood, foodImage: e.target.value })} />
               </div>
-              <div><label className="font-medium">Food Quantity</label>
-                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.foodQuantity} onChange={(e) => setSelectedFood({ ...selectedFood, foodQuantity: e.target.value })} />
+              <div><label className="font-bold text-gray-800">Food Quantity</label>
+                <input className="input input-bordered w-full bg-gray-400 text-gray-700 font-medium" value={selectedFood.foodQuantity} onChange={(e) => setSelectedFood({ ...selectedFood, foodQuantity: e.target.value })} />
               </div>
-              <div><label className="font-medium">Pickup Location</label>
-                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.pickupLocation} onChange={(e) => setSelectedFood({ ...selectedFood, pickupLocation: e.target.value })} />
+              <div><label className="font-bold text-gray-800">Pickup Location</label>
+                <input className="input input-bordered w-full bg-gray-400 text-gray-700 font-medium" value={selectedFood.pickupLocation} onChange={(e) => setSelectedFood({ ...selectedFood, pickupLocation: e.target.value })} />
               </div>
-              <div><label className="font-medium">Expired Date</label>
-                <input className="input input-bordered w-full bg-gray-100" value={selectedFood.expiredDateTime} onChange={(e) => setSelectedFood({ ...selectedFood, expiredDateTime: e.target.value })} />
+              <div><label className="font-bold text-gray-800">Expired Date</label>
+                <input className="input input-bordered w-full bg-gray-400 text-gray-700 font-medium" value={selectedFood.expiredDateTime} onChange={(e) => setSelectedFood({ ...selectedFood, expiredDateTime: e.target.value })} />
               </div>
-              <div><label className="font-medium">Additional Notes</label>
-                <textarea className="textarea textarea-bordered w-full" value={selectedFood.additionalNotes} onChange={(e) => setSelectedFood({ ...selectedFood, additionalNotes: e.target.value })}></textarea>
+              <div><label className="font-bold text-gray-800">Additional Notes</label>
+                <textarea className="textarea textarea-bordered bg-gray-400 text-gray-700 font-medium w-full" value={selectedFood.additionalNotes} onChange={(e) => setSelectedFood({ ...selectedFood, additionalNotes: e.target.value })}></textarea>
               </div>
               <div className="flex justify-end gap-3">
                 <button type="button" className="btn btn-secondary" onClick={() => setSelectedFood(null)}>Cancel</button>

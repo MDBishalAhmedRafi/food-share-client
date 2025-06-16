@@ -14,7 +14,7 @@ const MyFoodsRequest = () => {
     }, [user?.email]);
 
     return (
-        <div className="lg:w-11/12 mx-auto my-10">
+        <div className="lg:w-11/12 lg:mx-auto mx-2  bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4">
             <h2 className="text-center text-3xl font-bold mb-8 text-indigo-600">My Food Requests</h2>
 
             {myRequests.length === 0 ? (
@@ -33,10 +33,10 @@ const MyFoodsRequest = () => {
                         <tbody>
                             {myRequests.map(request => (
                                 <tr key={request._id}>
-                                    <td>{request.foodDonatorName}</td>
-                                    <td>{request.pickupLocation}</td>
-                                    <td>{request.expiredDateTime}</td>
-                                    <td>{new Date(request.requestDate).toLocaleString()}</td>
+                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.foodDonatorName}</td>
+                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.pickupLocation}</td>
+                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.expiredDateTime}</td>
+                                    <td className='text-gray-700 font-bold border-2 border-black'>{new Date(request.requestDate).toLocaleString()}</td>
                                 </tr>
                             ))}
                         </tbody>
