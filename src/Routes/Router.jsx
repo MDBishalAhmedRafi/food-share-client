@@ -31,7 +31,10 @@ const router = createBrowserRouter([
                 },
                 { 
                                 path: '/available-foods',
-                                loader: () => fetch('http://localhost:3000/available-foods'),
+                                loader: ({params, context, request}) => { 
+                                  console.log(params, context, request)
+                                  return fetch(`http://localhost:3000/available-foods${request.url.includes('desc') ? '?sort=desc':request.url.includes('asc') ? '?sort=asc': ''}`)
+                                },
                                 element: <AvailableFoods></AvailableFoods>,
                 },
                 { 
