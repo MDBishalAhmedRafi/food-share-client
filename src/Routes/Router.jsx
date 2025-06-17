@@ -14,18 +14,19 @@ import ForgetPass from "../Pages/ForgetPass";
 import Loading from "../Pages/Loading";
 import PrivateRoute from "../Provider/PrivateRoute";
 import FoodDetails from "../Pages/FoodDetails";
+import ErrorPage from "../Pages/ErrorPage"
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <div>Error Page</div>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [ 
                 { 
                                 index: true,
                                 path: '/',
-                                loader: () => fetch('http://localhost:3000/foods'),
+                                // loader: () => fetch('http://localhost:3000/foods'),
                                 element: <Home></Home>,
                                 hydrateFallbackElement: <Loading></Loading>
                 },
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
                                 element: <PrivateRoute>
                                   <FoodDetails></FoodDetails>
                                 </PrivateRoute>,
-                                loader: ({params}) => fetch (`http://localhost:3000/foods/${params.id}`)
+                                // loader: ({params}) => fetch (`http://localhost:3000/foods/${params.id}`)
                 },
                 { 
                                 path: '/add-foods',
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
                 },
                 { 
                                 path: '/manage-my-foods/:email',
-                                loader: ({params}) => fetch(`http://localhost:3000/my-foods/${params?.email}`),
+                                // loader: ({params}) => fetch(`http://localhost:3000/my-foods/${params?.email}`),
                                 element: <PrivateRoute>
                                   <ManageMyFoods></ManageMyFoods>
                                 </PrivateRoute>,

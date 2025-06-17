@@ -7,15 +7,17 @@ const MyFoodsRequest = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/my-requests?email=${user.email}`)
+            fetch(`http://localhost:3000/my-requests?email=${user.email}`, { 
+                headers: { "authorization": `Bearer ${user.accessToken}` }
+            })
                 .then(res => res.json())
                 .then(data => setMyRequests(data));
         }
-    }, [user?.email]);
+    }, [user?.email, user.accessToken]);
 
     return (
         <div className="lg:w-11/12 lg:mx-auto mx-2  bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4">
-            <h2 className="text-center text-3xl font-bold mb-8 text-indigo-600">My Food Requests</h2>
+            <h2 className="text-center text-3xl font-extrabold mb-8 text-indigo-600">My Food Requests</h2>
 
             {myRequests.length === 0 ? (
                 <p className="text-center text-lg text-gray-500">You have not requested any foods yet.</p>
@@ -25,6 +27,7 @@ const MyFoodsRequest = () => {
                         <thead className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-lg">
                             <tr>
                                 <th>Donar Name</th>
+                                <th>Food Name</th>
                                 <th>Pickup Location</th>
                                 <th>Expire Date</th>
                                 <th>Request Date & Time</th>
@@ -34,6 +37,7 @@ const MyFoodsRequest = () => {
                             {myRequests.map(request => (
                                 <tr key={request._id}>
                                     <td className='text-gray-700 font-bold border-2 border-black'>{request.foodDonatorName}</td>
+                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.foodName}</td>
                                     <td className='text-gray-700 font-bold border-2 border-black'>{request.pickupLocation}</td>
                                     <td className='text-gray-700 font-bold border-2 border-black'>{request.expiredDateTime}</td>
                                     <td className='text-gray-700 font-bold border-2 border-black'>{new Date(request.requestDate).toLocaleString()}</td>

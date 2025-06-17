@@ -60,18 +60,15 @@ const Navbar = () => {
             {user ? <li>
               <NavLink to="/add-foods">Add-Foods</NavLink>
             </li> : ""}
-            <li>
+            { user ? <li>
               <NavLink to={`/manage-my-foods/${user?.email}`}>Manage My Foods</NavLink>
-            </li>
-            <li>
+            </li> : ""
+            }
+            { 
+              user ? <li>
               <NavLink to="/my-food-request">My Food Request</NavLink>
-            </li>
-            {/* <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li> */}
+            </li> : ""
+            }
             </ul>
           </div>
           <Link to="/" className="text-xl cursor-pointer">
@@ -89,32 +86,21 @@ const Navbar = () => {
             {user ? <li>
               <NavLink to="/add-foods">Add-Foods</NavLink>
             </li> : ""}
-            <li>
+            { user ? <li>
               <NavLink to={`/manage-my-foods/${user?.email}`}>Manage My Foods</NavLink>
-            </li>
-            <li>
+            </li> : ""
+            }
+            { 
+              user ? <li>
               <NavLink to="/my-food-request">My Food Request</NavLink>
-            </li>
-            {/* <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li> */}
-            {/* <li>
-              <NavLink to={`/my-recipies/${user?.email}`}>My-Recipies</NavLink>
-            </li> */}
-            {/* {user ? <li><NavLink to="/recipe-details">Recipe-Details</NavLink></li> : ""} */}
+            </li> : ""
+            }
+            
           </ul>
         </div>
         <div className="navbar-end space-x-3">
-                {/* <Link to="/login" className="btn">
-              Login
-            </Link>
-            <Link to="/register" className="btn">
-              Register
-            </Link> */}
-          {/* <ToggleTheme></ToggleTheme> */}
+                
+          <ToggleTheme></ToggleTheme>
             <img
               className="bg-green-200 rounded-full p-1"
               src={user && user.photoURL}

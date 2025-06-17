@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import ManageMyFoodCard from "../Components/ManageMyFoodCard";
@@ -8,16 +8,8 @@ import Swal from 'sweetalert2';
 const ManageMyFoods = () => {
   const addedFoods = useLoaderData();
   const [foods, setFoods] = useState(addedFoods);
-  const { user } = useContext(AuthContext);
+  const { user } = use(AuthContext);
   const [selectedFood, setSelectedFood] = useState(null);  // <-- for update modal
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/my-foods/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFoods(data);
-      });
-  }, [user]);
 
   // Delete Handler
   const handleDelete = (id) => {
@@ -32,6 +24,7 @@ const ManageMyFoods = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:3000/my-foods/${id}`, {
+          headers: { "authorization": `Bearer ${user.accessToken}` },
           method: "DELETE",
         })
           .then(res => res.json())
@@ -54,7 +47,7 @@ const ManageMyFoods = () => {
   const handleSaveUpdate = () => {
     fetch(`http://localhost:3000/my-foods/${selectedFood._id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "authorization": `Bearer ${user.accessToken}` },
       body: JSON.stringify(selectedFood),
     })
       .then(res => res.json())
@@ -69,6 +62,19 @@ const ManageMyFoods = () => {
         }
       });
   };
+
+  useEffect(() => {
+  if (user?.email) {
+    fetch(`http://localhost:3000/my-foods/${user.email}`, { 
+       headers: { "authorization": `Bearer ${user.accessToken}` }
+    })
+      .then((res) => res.json())
+      .then((data) => setFoods(data));
+  }
+}, [user?.email, user?.accessToken]);
+
+
+ 
 
   return (
     <motion.div
@@ -100,7 +106,7 @@ const ManageMyFoods = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {foods.map((food, index) => (
+              {foods?.map((food, index) => (
                 <ManageMyFoodCard key={food._id} food={food} index={index + 1} handleDelete={handleDelete} handleUpdate={handleUpdate} />
               ))}
             </tbody>

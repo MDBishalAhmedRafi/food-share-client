@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
 import { getAuth } from 'firebase/auth';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddFood = () => {
+  const {user} = use(AuthContext)
   const [formData, setFormData] = useState({
     foodName: '',
     foodImageUrl: '',
@@ -15,6 +17,23 @@ const AddFood = () => {
     expiredDateTime: null,
     additionalNotes: ''
   });
+
+  // This state will hold fetched available foods (example)
+  const [availableFoods, setAvailableFoods] = useState([]);
+
+  useEffect(() => {
+    // Fetch existing available foods on mount
+    axios.get('http://localhost:3000/available-foods', { 
+      headers: { "authorization": `Bearer ${user.accessToken}` }
+    })
+      .then(response => {
+        setAvailableFoods(response.data);
+        console.log('Fetched available foods:', response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching available foods:', error);
+      });
+  }, [user.accessToken]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,8 +63,12 @@ const AddFood = () => {
     const formattedDate = format(formData.expiredDateTime, 'dd-MM-yyyy');
 
     const foodData = {
-      ...formData,
+      foodName: formData.foodName,
+      foodImageUrl: formData.foodImageUrl,
+      foodQuantity: formData.foodQuantity,
+      pickupLocation: formData.pickupLocation,
       expiredDateTime: formattedDate,
+      additionalNotes: formData.additionalNotes,
       foodStatus: 'available',
       userName: user.displayName,
       userEmail: user.email,
@@ -71,6 +94,9 @@ const AddFood = () => {
           expiredDateTime: null,
           additionalNotes: ''
         });
+
+        // Optionally update the availableFoods list with the new food
+        setAvailableFoods(prev => [...prev, response.data]);
       }
     } catch (error) {
       console.error(error);
@@ -86,6 +112,12 @@ const AddFood = () => {
     <div className="min-h-screen lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl flex justify-center items-center p-4">
       <div className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl p-10">
         <h2 className="text-3xl font-extrabold text-center text-blue-600 mb-8">🍽️ Add New Food Item</h2>
+
+        {/* Example: show number of available foods fetched */}
+        <p className="mb-6 text-center font-semibold text-gray-600">
+          Currently available foods: {availableFoods.length}
+        </p>
+
         <form onSubmit={handleSubmit} className="space-y-6">
 
           {/* Food Name */}
