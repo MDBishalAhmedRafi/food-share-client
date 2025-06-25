@@ -41,7 +41,7 @@ npm install
 4. **🌐 Live Demo**
    
 👉 Live Site: https://recipe-book-app-38172.web.app/
-6. **🙋‍♂️ Author**
+5. **🙋‍♂️ Author**
    
 MD Bishal Ahmed Rafi
 📧 mdbishalahmedrafi55@gmail.com
