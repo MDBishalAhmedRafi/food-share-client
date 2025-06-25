@@ -1,48 +1,63 @@
-# 🍽️ Recipe Book App
+# 🍱 Food Sharing Website
 
-**Recipe Book App** is a user-friendly and visually engaging web application designed for food enthusiasts to manage their own recipes, discover exciting new dishes shared by others, and build a personal collection with features like wishlists and likes. The platform also includes a **dynamic Top Recipes** section that highlights the most liked recipes.
+**Food Sharing Website** is a community-focused web platform where users can donate extra food, request available food, and manage shared items. Built with a modern tech stack, the platform allows full CRUD functionality for food items and lets users easily browse, request, and manage food-related activities.
 
 ---
 
 ## 🌟 Key Features
 
-- 📖 Add, edit, and delete your own recipes
-- 🔍 Browse and discover recipes from other users
-- 💖 Like recipes and add favorites to your wishlist
-- 🔝 View a dynamic **Top Recipes** section based on likes
-- 🎨 Smooth UI animations using Framer Motion and Lottie
-- 📱 Fully responsive design with Tailwind CSS
+- 🥗 **Add / Update / Delete** food donations (CRUD operations)
+- 🔍 View all **available food items**
+- 📥 Request food from other users
+- 📦 Manage **your requested foods** and donations
+- 📆 Select **pickup date/time** using a date picker
 - 🔐 Firebase Authentication for secure access
-- 🔔 Toast notifications and beautiful modals with SweetAlert2
+- 🔔 Instant feedback with React Toastify & SweetAlert2
+- 🎨 Lottie animations and smooth transitions via Framer Motion
 
 ---
 
-## 🚀 Technologies Used
+## 🚀 Tech Stack
 
-| Core Tools      | Styling & UI       | Animation/UX             | Utilities / Extras     |
-|-----------------|--------------------|---------------------------|-------------------------|
-| React 19        | Tailwind CSS 4     | Framer Motion, Lottie     | React Toastify          |
-| React Router 7  | Keen Slider, Swiper| React Awesome Reveal      | SweetAlert2             |
-| Firebase 11     | —                  | React Simple Typewriter   | —
+| Area            | Libraries / Tools |
+|-----------------|-------------------|
+| Frontend        | React 19, React Router 7 |
+| Styling         | Tailwind CSS 4, Chakra UI |
+| State / Data    | React Query (TanStack), Axios |
+| Animations      | Framer Motion, Lottie |
+| Date Handling   | date-fns, React DatePicker |
+| Icons & UI      | React Icons, Lucide React, Swiper |
+| Notifications   | React Toastify, SweetAlert2 |
+| Backend / Auth  | Firebase v11
 
 ---
 
+## 📸 Screenshots
+
+> *(Optional: Add UI screenshots here)*  
+> Example:  
+> ![Homepage](path-to-your-screenshot.png)
+
+---
 
 ## 🔧 Installation & Setup
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/recipe-book-app.git
-   cd recipe-book-app
-2. **Install dependencies**
+1. **Clone the Repository**
+```bash
+git clone https://github.com/YOUR_USERNAME/food-sharing-app.git
+cd food-sharing-app
+2. **Install Dependencies**
 npm install
-3. **Start the development server**
-   npm run dev
-4. **🌐 Live Demo**
-   
-👉 Live Site: https://recipe-book-app-38172.web.app/
+3. **Add Firebase Configuration**
+Create a Firebase project
 
-5. **🙋‍♂️ Author**
-   
+Replace values in your firebase.config.js file
+4. **Start the Development Server**
+npm run dev
+5. **🌐 Live Demo**
+👉 Visit Live Website
+6. ** 🙋‍♂️ Author**
 MD Bishal Ahmed Rafi
 📧 mdbishalahmedrafi55@gmail.com
+
+
