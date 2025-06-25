@@ -42,22 +42,22 @@
 
 ## 🔧 Installation & Setup
 
-1. **Clone the Repository**
-```bash
-git clone https://github.com/YOUR_USERNAME/food-sharing-app.git
-cd food-sharing-app
+## 🔧 Installation & Setup
 
-2. **Install Dependencies**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/recipe-book-app.git
+   cd food-sharing-app
+2. **Install dependencies**
 npm install
-3. **Add Firebase Configuration**
-Create a Firebase project
+3. **Start the development server**
+   npm run dev
+4. **🌐 Live Demo**
+   
+👉 Live Site: https://ssignment-11.web.app
 
-Replace values in your firebase.config.js file
-4. **Start the Development Server**
-npm run dev
-5. **🌐 Live Demo**
-👉 Visit Live Website
-6. ** 🙋‍♂️ Author**
+5. **🙋‍♂️ Author**
+   
 MD Bishal Ahmed Rafi
 📧 mdbishalahmedrafi55@gmail.com
 
