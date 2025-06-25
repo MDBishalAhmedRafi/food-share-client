@@ -27,13 +27,6 @@
 
 ---
 
-## 📸 Screenshots
-
-> *(Optional: Add screenshots or a demo GIF to show off your UI)*  
-> Example:  
-> ![Recipe Book App Homepage](path-to-your-screenshot.png)
-
----
 
 ## 🔧 Installation & Setup
 
@@ -45,8 +38,10 @@
 npm install
 3. **Start the development server**
    npm run dev
-4. **🌐 Live Demo
+4. **🌐 Live Demo**
+   
 👉 Live Site: https://recipe-book-app-38172.web.app/
-5. 🙋‍♂️ Author
+6. **🙋‍♂️ Author**
+   
 MD Bishal Ahmed Rafi
 📧 mdbishalahmedrafi55@gmail.com
