@@ -46,6 +46,7 @@
 ```bash
 git clone https://github.com/YOUR_USERNAME/food-sharing-app.git
 cd food-sharing-app
+
 2. **Install Dependencies**
 npm install
 3. **Add Firebase Configuration**
@@ -59,5 +60,7 @@ npm run dev
 6. ** 🙋‍♂️ Author**
 MD Bishal Ahmed Rafi
 📧 mdbishalahmedrafi55@gmail.com
+
+
 
 
