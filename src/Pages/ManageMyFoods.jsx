@@ -23,7 +23,7 @@ const ManageMyFoods = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/my-foods/${id}`, {
+        fetch(`https://food-sharing-server-coral.vercel.app/my-foods/${id}`, {
           headers: { "authorization": `Bearer ${user.accessToken}` },
           method: "DELETE",
         })
@@ -45,7 +45,7 @@ const ManageMyFoods = () => {
 
   // Save updated food
   const handleSaveUpdate = () => {
-    fetch(`http://localhost:3000/my-foods/${selectedFood._id}`, {
+    fetch(`https://food-sharing-server-coral.vercel.app/my-foods/${selectedFood._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json", "authorization": `Bearer ${user.accessToken}` },
       body: JSON.stringify(selectedFood),
@@ -65,7 +65,7 @@ const ManageMyFoods = () => {
 
   useEffect(() => {
   if (user?.email) {
-    fetch(`http://localhost:3000/my-foods/${user.email}`, { 
+    fetch(`https://food-sharing-server-coral.vercel.app/my-foods/${user.email}`, { 
        headers: { "authorization": `Bearer ${user.accessToken}` }
     })
       .then((res) => res.json())
@@ -78,7 +78,7 @@ const ManageMyFoods = () => {
 
   return (
     <motion.div
-      className="min-h-screen lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4"
+      className="min-h-screen lg:mt-21 md:mt-21 mt-21 lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}

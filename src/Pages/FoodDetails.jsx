@@ -27,7 +27,7 @@
 //         };
 
 //         try {
-//             const response = await fetch('http://localhost:3000/requestedFoods', {
+//             const response = await fetch('https://food-sharing-server-coral.vercel.app/requestedFoods', {
 //                 method: 'POST',
 //                 headers: { 'Content-Type': 'application/json' },
 //                 body: JSON.stringify(requestData)
@@ -148,7 +148,7 @@ const FoodDetails = () => {
   useEffect(() => {
     const fetchFood = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/foods/${id}`, { 
+        const res = await fetch(`https://food-sharing-server-coral.vercel.app/foods/${id}`, { 
             headers: { "authorization": `Bearer ${user.accessToken}` }
         });
         const data = await res.json();
@@ -192,7 +192,7 @@ const FoodDetails = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/requestedFoods', {
+      const response = await fetch('https://food-sharing-server-coral.vercel.app/requestedFoods', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestData)
@@ -218,17 +218,17 @@ const FoodDetails = () => {
   };
 
   return (
-    <div className="card lg:card-side bg-white shadow-sm lg:p-4 md:p-3 p-2 lg:w-11/12 mx-auto mb-10">
+    <div className="card lg:card-side lg:mt-21 md:mt-21 mt-21 bg-white  shadow-sm lg:p-4 md:p-3 p-2 lg:w-11/12 mx-auto mb-10">
       <figure className='lg:w-5/12'>
         <img className='rounded-3xl' src={food.foodImage} alt="Food" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title font-bold text-indigo-800">{food.foodName}</h2>
-        <p className='text-indigo-800 font-bold'>Total Quantity: {food.foodQuantity}</p>
-        <p className='font-extrabold text-indigo-800'>Pickup Location: {food.pickupLocation}</p>
-        <p className='font-extrabold text-indigo-800'>Expire Date: {food.expiredDateTime}</p>
-        <p className='font-extrabold text-indigo-800'>Preparation Time: {food.additionalNotes}</p>
-        <p className='font-extrabold text-indigo-800'>Food Status: {food.foodStatus}</p>
+        <h2 className="card-title font-bold text-indigo-800 dark:text-white">{food.foodName}</h2>
+        <p className='text-indigo-800  font-bold'>Total Quantity: {food.foodQuantity}</p>
+        <p className='font-extrabold text-indigo-800 '>Pickup Location: {food.pickupLocation}</p>
+        <p className='font-extrabold text-indigo-800 '>Expire Date: {food.expiredDateTime}</p>
+        <p className='font-extrabold text-indigo-800 '>Preparation Time: {food.additionalNotes}</p>
+        <p className='font-extrabold text-indigo-800 '>Food Status: {food.foodStatus}</p>
         <div className="card-actions justify-end">
           <button onClick={handleRequest} className="btn btn-success">
             {hasRequested ? "Requested" : "Request"}

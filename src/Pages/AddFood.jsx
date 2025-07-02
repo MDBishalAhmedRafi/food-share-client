@@ -23,7 +23,7 @@ const AddFood = () => {
 
   useEffect(() => {
     // Fetch existing available foods on mount
-    axios.get('http://localhost:3000/available-foods', { 
+    axios.get('https://food-sharing-server-coral.vercel.app/available-foods', { 
       headers: { "authorization": `Bearer ${user.accessToken}` }
     })
       .then(response => {
@@ -76,7 +76,7 @@ const AddFood = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/available-foods', foodData);
+      const response = await axios.post('https://food-sharing-server-coral.vercel.app/available-foods', foodData);
       if (response.status === 201 || response.status === 200) {
         Swal.fire({
           position: "top-end",
@@ -109,7 +109,7 @@ const AddFood = () => {
   };
 
   return (
-    <div className="min-h-screen lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl flex justify-center items-center p-4">
+    <div className="min-h-screen lg:mt-21 md:mt-21 mt-21 lg:w-11/12 lg:mx-auto mx-2 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-2xl flex justify-center items-center p-4">
       <div className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl p-10">
         <h2 className="text-3xl font-extrabold text-center text-blue-600 mb-8">🍽️ Add New Food Item</h2>
 
@@ -156,7 +156,7 @@ const AddFood = () => {
               name="foodQuantity"
               value={formData.foodQuantity}
               onChange={handleChange}
-              placeholder="e.g. 5 plates, 3 kg"
+              placeholder="e.g. Boxes"
               required
               className="w-full p-3 border border-gray-300 text-gray-700 font-medium rounded-xl"
             />

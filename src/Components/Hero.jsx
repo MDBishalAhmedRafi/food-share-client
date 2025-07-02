@@ -25,7 +25,7 @@ const banners = [
 
 const Hero = () => {
                 return (
-                                <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl lg:mb-10 md:mb-7 mb-5">
+                                <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-3xl lg:mb-10 md:mb-7 mb-5 lg:mt-21 md:mt-21 mt-21">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}

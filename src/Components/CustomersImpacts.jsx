@@ -109,13 +109,13 @@ const CustomersImpacts = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="bg-white p-6 rounded-xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl"
+            className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl"
           >
             {item.icon}
-            <h3 className="text-3xl font-bold text-gray-800 mb-1">
+            <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-1">
               <CountUp end={item.value} duration={5} separator="," />+
             </h3>
-            <p className="text-gray-600 text-sm">{item.label}</p>
+            <p className="text-gray-600 dark:text-white text-sm">{item.label}</p>
           </motion.div>
         ))}
       </div>

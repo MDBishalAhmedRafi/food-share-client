@@ -22,7 +22,7 @@
 //   useEffect(() => {
 //   const getData = async () => {
 //     try {
-//       const res = await fetch(`http://localhost:3000/available-foods?sort=${sorting}`);
+//       const res = await fetch(`https://food-sharing-server-coral.vercel.app/available-foods?sort=${sorting}`);
 //       const result = await res.json();
 //       setFilteredFoods(result);
 //     } catch (error) {
@@ -118,7 +118,7 @@ const AvailableFoods = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/available-foods?sort=${sorting}`);
+        const res = await fetch(`https://food-sharing-server-coral.vercel.app/available-foods?sort=${sorting}`);
         const result = await res.json();
         setFilteredFoods(result);
       } catch (error) {
@@ -140,7 +140,7 @@ const AvailableFoods = () => {
   };
 
   return (
-    <div className="lg:w-11/12 lg:mx-auto mx-2 lg:mb-10 md:mb-7 mb-5 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-3xl lg:p-4 md:p-3 p-2">
+    <div className="lg:mt-21 md:mt-21 mt-21 lg:w-11/12 lg:mx-auto mx-2 lg:mb-10 md:mb-7 mb-5 bg-gradient-to-r from-[#F1FAEE] via-orange to-[#2A9D8F] rounded-3xl lg:p-4 md:p-3 p-2">
       <h1 className="text-center text-[#333333] text-3xl font-bold mb-8">All Available Foods</h1>
 
       <div className="flex gap-2 w-full md:w-1/2 mb-4">

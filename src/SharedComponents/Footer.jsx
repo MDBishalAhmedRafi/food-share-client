@@ -41,7 +41,13 @@ const Footer = () => {
             {user ? <li>
                           <a href="/add-foods" className="hover:underline">Add-Foods</a>
                         </li> : ""}
-            <li><a href="/about" className="hover:underline">About Us</a></li>
+            {user ? <li>
+                          <a href="/manage-my-foods" className="hover:underline">Manage My Foods</a>
+                        </li> : ""}
+            {user ? <li>
+                          <a href="/my-food-request" className="hover:underline">My Food Request</a>
+                        </li> : ""}
+           
           </ul>
         </div>
 

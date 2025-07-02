@@ -7,7 +7,7 @@ const MyFoodsRequest = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/my-requests?email=${user.email}`, { 
+            fetch(`https://food-sharing-server-coral.vercel.app/my-requests?email=${user.email}`, { 
                 headers: { "authorization": `Bearer ${user.accessToken}` }
             })
                 .then(res => res.json())
@@ -16,7 +16,7 @@ const MyFoodsRequest = () => {
     }, [user?.email, user.accessToken]);
 
     return (
-        <div className="lg:w-11/12 lg:mx-auto mx-2  bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4">
+        <div className="lg:w-11/12 lg:mx-auto mx-2 lg:mt-21 md:mt-21 mt-21 bg-gradient-to-br from-indigo-50 via-white to-emerald-200 rounded-2xl py-10 px-4">
             <h2 className="text-center text-3xl font-extrabold mb-8 text-indigo-600">My Food Requests</h2>
 
             {myRequests.length === 0 ? (

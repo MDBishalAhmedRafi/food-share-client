@@ -26,7 +26,7 @@ const router = createBrowserRouter([
                 { 
                                 index: true,
                                 path: '/',
-                                // loader: () => fetch('http://localhost:3000/foods'),
+                                // loader: () => fetch('https://food-sharing-server-coral.vercel.app/foods'),
                                 element: <Home></Home>,
                                 hydrateFallbackElement: <Loading></Loading>
                 },
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
                                 path: '/available-foods',
                                 loader: ({params, context, request}) => { 
                                   console.log(params, context, request)
-                                  return fetch(`http://localhost:3000/available-foods${request.url.includes('desc') ? '?sort=desc':request.url.includes('asc') ? '?sort=asc': ''}`)
+                                  return fetch(`https://food-sharing-server-coral.vercel.app/available-foods${request.url.includes('desc') ? '?sort=desc':request.url.includes('asc') ? '?sort=asc': ''}`)
                                 },
                                 element: <AvailableFoods></AvailableFoods>,
                 },
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
                                 element: <PrivateRoute>
                                   <FoodDetails></FoodDetails>
                                 </PrivateRoute>,
-                                // loader: ({params}) => fetch (`http://localhost:3000/foods/${params.id}`)
+                                // loader: ({params}) => fetch (`https://food-sharing-server-coral.vercel.app/foods/${params.id}`)
                 },
                 { 
                                 path: '/add-foods',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
                 },
                 { 
                                 path: '/manage-my-foods/:email',
-                                // loader: ({params}) => fetch(`http://localhost:3000/my-foods/${params?.email}`),
+                                // loader: ({params}) => fetch(`https://food-sharing-server-coral.vercel.app/my-foods/${params?.email}`),
                                 element: <PrivateRoute>
                                   <ManageMyFoods></ManageMyFoods>
                                 </PrivateRoute>,
