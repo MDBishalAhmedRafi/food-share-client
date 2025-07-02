@@ -1,6 +1,5 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
-import mainLogo from '../assets/logo.jpg';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import ToggleTheme from './ToggleTheme';
