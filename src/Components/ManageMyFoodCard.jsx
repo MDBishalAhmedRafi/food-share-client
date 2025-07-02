@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ManageMyFoodCard = ({ food, index, handleDelete, handleUpdate }) => {
   return (
     <motion.tr
-      className="hover:bg-gray-50 transition"
+      className="hover:bg-gray-50 dark:hover:bg-gray-700 transition"
       initial={{ opacity: 0, y: 5 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -14,7 +14,7 @@ const ManageMyFoodCard = ({ food, index, handleDelete, handleUpdate }) => {
         delay: index * 0.07,
       }}
     >
-      <td className="py-4 px-4 font-semibold text-gray-600">{index}</td>
+      <td className="py-4 px-4 font-semibold text-gray-600 dark:text-gray-200">{index}</td>
 
       <td className="py-4 px-4">
         <div className="flex items-center gap-3">
@@ -28,11 +28,11 @@ const ManageMyFoodCard = ({ food, index, handleDelete, handleUpdate }) => {
         </div>
       </td>
       <td className="py-4 px-4">
-        <div className="font-bold text-gray-800">{food.userName}</div>
-        <div className="text-sm text-gray-500">{food.userEmail}</div>
+        <div className="font-bold text-gray-800 dark:text-gray-200">{food.userName}</div>
+        <div className="text-sm text-gray-500 dark:text-gray-400">{food.userEmail}</div>
       </td>
       <td className="py-4 px-4">
-        <span className="text-indigo-600 font-medium">
+        <span className="text-indigo-600 dark:text-indigo-300 font-medium">
           {food.pickupLocation}
         </span>
       </td>
@@ -46,13 +46,13 @@ const ManageMyFoodCard = ({ food, index, handleDelete, handleUpdate }) => {
       <td className="py-4 px-4 flex flex-col md:flex-row gap-3">
         <button
           onClick={() => handleUpdate(food)}
-          className="px-4 py-2 bg-indigo-500 text-white rounded-xl shadow hover:bg-indigo-600 transition text-sm font-medium"
+          className="px-4 py-2 bg-indigo-500 text-white rounded-xl shadow hover:bg-indigo-600 transition text-sm font-medium cursor-pointer"
         >
           Update
         </button>
         <button
           onClick={() => handleDelete(food._id)}
-          className="px-4 py-2 bg-red-500 text-white rounded-xl shadow hover:bg-red-600 transition text-sm font-medium"
+          className="px-4 py-2 bg-red-500 text-white rounded-xl shadow hover:bg-red-600 transition text-sm font-medium cursor-pointer"
         >
           Delete
         </button>

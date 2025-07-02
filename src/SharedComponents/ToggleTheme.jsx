@@ -32,7 +32,7 @@ const ToggleTheme = () => {
         aria-label={`switch to ${theme === "dark" ? "light" : "dark"} mode`}
         className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
       >
-        {theme === 'dark' ? (<span className="text-yellow-300 text-xl"> <FaSun></FaSun> </span>) : (<span className="text-white text-xl"> <FaMoon></FaMoon> </span>)}
+        {theme === 'dark' ? (<span className="text-yellow-300 text-xl"> <FaSun></FaSun> </span>) : (<span className="text-black text-xl"> <FaMoon></FaMoon> </span>)}
       </button>
     </div>
   );

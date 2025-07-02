@@ -1,6 +1,5 @@
 import {
   createBrowserRouter,
-  RouterProvider
 } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home";
@@ -37,12 +36,14 @@ const router = createBrowserRouter([
                                   return fetch(`https://food-sharing-server-coral.vercel.app/available-foods${request.url.includes('desc') ? '?sort=desc':request.url.includes('asc') ? '?sort=asc': ''}`)
                                 },
                                 element: <AvailableFoods></AvailableFoods>,
+                                hydrateFallbackElement: <Loading></Loading>,
                 },
                 { 
                                 path: '/foods/:id',
                                 element: <PrivateRoute>
                                   <FoodDetails></FoodDetails>
                                 </PrivateRoute>,
+                                hydrateFallbackElement: <Loading></Loading>,
                                 // loader: ({params}) => fetch (`https://food-sharing-server-coral.vercel.app/foods/${params.id}`)
                 },
                 { 
@@ -57,12 +58,14 @@ const router = createBrowserRouter([
                                 element: <PrivateRoute>
                                   <ManageMyFoods></ManageMyFoods>
                                 </PrivateRoute>,
+                                hydrateFallbackElement: <Loading></Loading>,
                 },
                 { 
                                 path: '/my-food-request',
                                 element: <PrivateRoute>
                                   <MyFoodsRequest></MyFoodsRequest>
                                 </PrivateRoute>,
+                                hydrateFallbackElement: <Loading></Loading>,
                 },
                 { 
                                 path: '/login',

@@ -218,19 +218,19 @@ const FoodDetails = () => {
   };
 
   return (
-    <div className="card lg:card-side lg:mt-21 md:mt-21 mt-21 bg-white  shadow-sm lg:p-4 md:p-3 p-2 lg:w-11/12 mx-auto mb-10">
+    <div className="card lg:card-side lg:mt-21 md:mt-21 mt-21 bg-white dark:bg-gray-700 shadow-sm lg:p-4 md:p-3 p-2 lg:w-11/12 mx-auto mb-10">
       <figure className='lg:w-5/12'>
         <img className='rounded-3xl' src={food.foodImage} alt="Food" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title font-bold text-indigo-800 dark:text-white">{food.foodName}</h2>
-        <p className='text-indigo-800  font-bold'>Total Quantity: {food.foodQuantity}</p>
-        <p className='font-extrabold text-indigo-800 '>Pickup Location: {food.pickupLocation}</p>
-        <p className='font-extrabold text-indigo-800 '>Expire Date: {food.expiredDateTime}</p>
-        <p className='font-extrabold text-indigo-800 '>Preparation Time: {food.additionalNotes}</p>
-        <p className='font-extrabold text-indigo-800 '>Food Status: {food.foodStatus}</p>
+        <h2 className="card-title font-bold text-indigo-800 dark:text-indigo-300">{food.foodName}</h2>
+        <p className='text-indigo-800 dark:text-indigo-300 font-bold'>Total Quantity: {food.foodQuantity}</p>
+        <p className='font-extrabold text-indigo-800 dark:text-indigo-300 dark:bg-gray-700'>Pickup Location: {food.pickupLocation}</p>
+        <p className='font-extrabold text-indigo-800 dark:text-indigo-300 dark:bg-gray-700'>Expire Date: {food.expiredDateTime}</p>
+        <p className='font-extrabold text-indigo-800 dark:text-indigo-300 dark:bg-gray-700'>Preparation Time: {food.additionalNotes}</p>
+        <p className='font-extrabold text-indigo-800 dark:text-indigo-300 dark:bg-gray-700'>Food Status: {food.foodStatus}</p>
         <div className="card-actions justify-end">
-          <button onClick={handleRequest} className="btn btn-success">
+          <button onClick={handleRequest} className="btn btn-success dark:text-white">
             {hasRequested ? "Requested" : "Request"}
           </button>
         </div>
@@ -265,10 +265,10 @@ const FoodDetails = () => {
                 <input className="input input-bordered w-full bg-gray-400 text-gray-700 font-medium" value={food.pickupLocation} disabled />
               </div>
               <div><label className="font-bold text-gray-800">Expire Date</label>
-                <input className="input input-bordered w-full bg-gray-100" value={food.expiredDateTime} disabled />
+                <input className="input input-bordered w-full bg-gray-100 " value={food.expiredDateTime} disabled />
               </div>
               <div><label className="font-bold text-gray-800">Additional Notes</label>
-                <textarea className="textarea textarea-bordered w-full bg-gray-400 text-gray-700 font-medium" placeholder="Write any notes..." value={additionalNotes} onChange={(e) => setAdditionalNotes(e.target.value)} />
+                <textarea className="textarea textarea-bordered w-full bg-gray-400 dark:bg-gray-900 text-gray-700 dark:text-gray-200 font-medium" placeholder="Write any notes..." value={additionalNotes} onChange={(e) => setAdditionalNotes(e.target.value)} />
               </div>
 
               <button type="submit" className="btn btn-primary w-full text-lg">Submit Request</button>

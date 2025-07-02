@@ -62,6 +62,9 @@ const Navbar = () => {
                   <li>
                     <NavLink to="/my-food-request">My Food Request</NavLink>
                   </li>
+                 <button onClick={handleLogOut} className="btn bg-[#2A9D8F] lg:hidden block">
+              Logout
+            </button>
                 </>
               )}
             </ul>
@@ -106,7 +109,7 @@ const Navbar = () => {
             />
           )}
           {user ? (
-            <button onClick={handleLogOut} className="btn bg-[#2A9D8F]">
+            <button onClick={handleLogOut} className="btn bg-[#2A9D8F] lg:block hidden">
               Logout
             </button>
           ) : (

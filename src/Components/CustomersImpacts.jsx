@@ -6,17 +6,17 @@ import CountUp from "react-countup";
 // Statistic items
 const items = [
   {
-    icon: <HandHeart className="w-10 h-10 text-[#333333] mx-auto mb-3" />,
+    icon: <HandHeart className="w-10 h-10 text-[#333333] dark:text-gray-300 mx-auto mb-3" />,
     label: "Meals Donated",
     value: 4500,
   },
   {
-    icon: <Users className="w-10 h-10 text-[#333333] mx-auto mb-3" />,
+    icon: <Users className="w-10 h-10 text-[#333333] dark:text-gray-300 mx-auto mb-3" />,
     label: "Volunteers",
     value: 2000,
   },
   {
-    icon: <Star className="w-10 h-10 text-[#333333] mx-auto mb-3" />,
+    icon: <Star className="w-10 h-10 text-[#333333] dark:text-gray-300 mx-auto mb-3" />,
     label: "Families Helped",
     value: 1200,
   },

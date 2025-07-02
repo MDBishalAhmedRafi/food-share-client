@@ -33,14 +33,14 @@ const MyFoodsRequest = () => {
                                 <th>Request Date & Time</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='bg-white dark:bg-gray-700'>
                             {myRequests.map(request => (
                                 <tr key={request._id}>
-                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.foodDonatorName}</td>
-                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.foodName}</td>
-                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.pickupLocation}</td>
-                                    <td className='text-gray-700 font-bold border-2 border-black'>{request.expiredDateTime}</td>
-                                    <td className='text-gray-700 font-bold border-2 border-black'>{new Date(request.requestDate).toLocaleString()}</td>
+                                    <td className='text-gray-700 dark:text-gray-200 font-bold border-2 border-black'>{request.foodDonatorName}</td>
+                                    <td className='text-gray-700 dark:text-gray-200 font-bold border-2 border-black'>{request.foodName}</td>
+                                    <td className='text-gray-700 dark:text-gray-200 font-bold border-2 border-black'>{request.pickupLocation}</td>
+                                    <td className='text-gray-700 dark:text-gray-200 font-bold border-2 border-black'>{request.expiredDateTime}</td>
+                                    <td className='text-gray-700 dark:text-gray-200 font-bold border-2 border-black'>{new Date(request.requestDate).toLocaleString()}</td>
                                 </tr>
                             ))}
                         </tbody>
