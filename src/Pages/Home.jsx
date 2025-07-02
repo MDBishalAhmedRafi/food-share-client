@@ -45,6 +45,8 @@ import FeaturedFoods from '../Components/FeaturedFoods';
 import { Link } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
 import Loading from './Loading';
+import CallToAction from '../Components/CallToAction';
+import SuccessStories from '../Components/SuccessStories';
 
 const fetchFoods = async () => {
   const res = await fetch('https://food-sharing-server-coral.vercel.app/foods');
@@ -92,6 +94,8 @@ const Home = () => {
       </section>
       <CustomersImpacts />
       <HowItWorks />
+      {/* <SuccessStories></SuccessStories> */}
+      <CallToAction></CallToAction>
     </div>
   );
 };
